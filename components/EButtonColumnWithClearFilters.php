@@ -195,11 +195,13 @@ class EButtonColumnWithClearFilters extends CButtonColumn {
             }
             $_options=@array_merge($_optionsDefault,$this->clearHtmlOptions);
 
-            if (!empty($this->imageUrl)) {
+            if($this->imageUrl===false)
                 $_imageUrl=$this->imageUrl;
-            } else {
+            elseif (!empty($this->imageUrl))
+                $_imageUrl=$this->imageUrl;
+            else
                 $_imageUrl=$this->grid->baseScriptUrl.'/delete.png';
-            }
+
 
             if (!empty($this->url)) {
                 $_url=$this->url;
